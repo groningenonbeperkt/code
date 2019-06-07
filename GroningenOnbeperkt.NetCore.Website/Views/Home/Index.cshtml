@@ -1,0 +1,88 @@
+﻿
+<div id="map" class="map">
+    <div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#navigationTab" role="tab"><i class="fa fa-location-arrow fa-lg" aria-hidden="true"></i></a></li>
+                <li><a href="#search" role="tab"><i class="fa fa-search fa-lg" aria-hidden="true"></i></a></li>
+                <li><a href="#layers" role="tab"><i class="fa fa-map fa-lg" aria-hidden="true"></i></a></li>
+                <li><a href="#poi" role="tab"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i></a></li>
+                <li><a id="informationContentTab" href="#information" role="tab"><i class="fa fa-info  fa-lg" aria-hidden="true"></i></a></li>
+                @if (Context.Request.HttpContext.User.Identity.IsAuthenticated)
+                {
+                    <li><a href="#edit" role="tab"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a></li>
+                }
+            </ul>
+            <ul role="tablist">
+                <li><a href="#settings" role="tab"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- Tab panes -->
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="navigationTab">
+                <h1 class="sidebar-header">Navigatie<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                @Html.Partial("~/Views/Sidebar/NavigationPartial.cshtml")
+            </div>
+            <div class="sidebar-pane" id="search">
+                <h1 class="sidebar-header">Zoeken<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1><br />
+                <div id="searchField"></div> <br />
+                <label id="searchFieldInformationLabel" />
+            </div>
+
+            <div class="sidebar-pane" id="layers">
+                <h1 class="sidebar-header">Lagen<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                @Html.Partial("~/Views/Sidebar/LayerPartial.cshtml")
+            </div>
+
+            <div class="sidebar-pane" id="information">
+                <h1 class="sidebar-header">Informatie<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <div id="informationContent"></div>
+            </div>
+            @if (Context.Request.HttpContext.User.Identity.IsAuthenticated)
+            {
+                <div class="sidebar-pane" id="edit">
+                    <h1 class="sidebar-header">Bewerken<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                    @Html.Partial("~/Views/Sidebar/EditPartial.cshtml")
+                </div>
+            }
+            <div class="sidebar-pane" id="poi">
+                <h1 class="sidebar-header">Nuttige plaatsen<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                @Html.Partial("~/Views/Sidebar/PoiPartial.cshtml")
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        osrmServiceUrl = '@ViewBag.OsrmServiceUrl';
+
+        tempRandomUrl = '@ViewBag.RandomUrl';
+    </script>
+
+    <script src="~/lib/jQuery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="@Url.Content("https://unpkg.com/leaflet@1.0.3/dist/leaflet.js")"></script>
+
+    <script src="~/js/clipper.js"></script>
+    <script src="~/js/OverPassLayer.js"></script>
+    <script src="~/js/MinZoomIndicator.js"></script>
+    <script src="~/js/Control.Geocoder.js"></script>
+    <script src="~/js/subgroup.js"></script>
+    <script src="~/js/WheelchairWayOverPassLayer.js"></script>
+    <script src="~/js/PoiOverPassLayer.js"></script>
+    <script src="~/js/PartialHelper.js"></script>
+    <script src="~/lib/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <script src="~/js/leaflet.markercluster.freezable.js"></script>
+    <script src="~/lib/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <!--<script src="~/lib/leaflet-sidebar/src/L.Control.Sidebar.js"></script>-->
+    <script src="~/js/leaflet-sidebar.js"></script>
+    <script src="~/lib/tether/dist/js/tether.js"></script>
+
+    <script src="~/js/site.js"></script>
+}

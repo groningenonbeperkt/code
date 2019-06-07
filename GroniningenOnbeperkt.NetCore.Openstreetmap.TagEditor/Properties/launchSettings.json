@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "GroniningenOnbeperkt.NetCore.TagEditor.Openstreetmap": {
+      "commandName": "Project"
+    },
+    "Openstreetmap.OAuth": {
+      "commandName": "Project"
+    }
+  }
+}

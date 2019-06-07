@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagEditor.OpenStreetMap", "TagEditor.OpenStreetMap\TagEditor.OpenStreetMap.csproj", "{D7285C07-FAA6-46A7-B844-69AE5346F89F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroningenOnbeperkt.NetCore.Website", "GroningenOnbeperkt.NetCore.Website\GroningenOnbeperkt.NetCore.Website.csproj", "{DA5869F4-8E08-463A-AF4F-C323CD5E3C45}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0126137B-F7BC-48E8-B010-83D10DDAFFE7} = {0126137B-F7BC-48E8-B010-83D10DDAFFE7}
+		{C12152B6-91EC-4FC6-A38F-7F30529CDD43} = {C12152B6-91EC-4FC6-A38F-7F30529CDD43}
+	EndProjectSection
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5AABECD6-41A1-407E-9FCC-2758E703D8C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owin.Security.Providers.OpenStreetMap", "Owin.Security.Providers.OpenStreetMap\Owin.Security.Providers.OpenStreetMap.csproj", "{8B4FD5B0-E19C-43CD-AC2D-C05A905AD68B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Openstreetmap.Core.OAuth", "Openstreetmap.Core.OAuth\Openstreetmap.Core.OAuth.csproj", "{80CFCC92-85E1-414C-852E-B8B34046EF85}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GroniningenOnbeperkt.NetCore.TagEditor.Openstreetmap", "GroniningenOnbeperkt.NetCore.TagEditor.Openstreetmap\GroniningenOnbeperkt.NetCore.TagEditor.Openstreetmap.csproj", "{C12152B6-91EC-4FC6-A38F-7F30529CDD43}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Authentication.Openstreetmap", "Microsoft.AspNetCore.Authentication.Openstreetmap\Microsoft.AspNetCore.Authentication.Openstreetmap.csproj", "{0126137B-F7BC-48E8-B010-83D10DDAFFE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7285C07-FAA6-46A7-B844-69AE5346F89F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7285C07-FAA6-46A7-B844-69AE5346F89F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7285C07-FAA6-46A7-B844-69AE5346F89F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7285C07-FAA6-46A7-B844-69AE5346F89F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA5869F4-8E08-463A-AF4F-C323CD5E3C45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA5869F4-8E08-463A-AF4F-C323CD5E3C45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA5869F4-8E08-463A-AF4F-C323CD5E3C45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA5869F4-8E08-463A-AF4F-C323CD5E3C45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AABECD6-41A1-407E-9FCC-2758E703D8C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AABECD6-41A1-407E-9FCC-2758E703D8C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AABECD6-41A1-407E-9FCC-2758E703D8C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AABECD6-41A1-407E-9FCC-2758E703D8C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B4FD5B0-E19C-43CD-AC2D-C05A905AD68B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B4FD5B0-E19C-43CD-AC2D-C05A905AD68B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B4FD5B0-E19C-43CD-AC2D-C05A905AD68B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B4FD5B0-E19C-43CD-AC2D-C05A905AD68B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80CFCC92-85E1-414C-852E-B8B34046EF85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80CFCC92-85E1-414C-852E-B8B34046EF85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80CFCC92-85E1-414C-852E-B8B34046EF85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80CFCC92-85E1-414C-852E-B8B34046EF85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C12152B6-91EC-4FC6-A38F-7F30529CDD43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C12152B6-91EC-4FC6-A38F-7F30529CDD43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C12152B6-91EC-4FC6-A38F-7F30529CDD43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C12152B6-91EC-4FC6-A38F-7F30529CDD43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0126137B-F7BC-48E8-B010-83D10DDAFFE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0126137B-F7BC-48E8-B010-83D10DDAFFE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0126137B-F7BC-48E8-B010-83D10DDAFFE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0126137B-F7BC-48E8-B010-83D10DDAFFE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27A16C7C-2CB2-42BB-8886-0BAEDB71465B}
+	EndGlobalSection
+EndGlobal

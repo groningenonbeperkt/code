@@ -1,0 +1,45 @@
+  [
+    {
+      "TypeId": "public class Microsoft.AspNetCore.Authentication.Openstreetmap.BaseOpenstreetmapContext : Microsoft.AspNetCore.Authentication.BaseContext",
+      "Kind": "Removal"
+    },
+    {
+      "TypeId": "public class Microsoft.AspNetCore.Authentication.Openstreetmap.OpenstreetmapEvents : Microsoft.AspNetCore.Authentication.RemoteAuthenticationEvents, Microsoft.AspNetCore.Authentication.Openstreetmap.IOpenstreetmapEvents",
+      "Kind": "Removal"
+    },
+    {
+      "TypeId": "public class Microsoft.AspNetCore.Authentication.Openstreetmap.OpenstreetmapMiddleware : Microsoft.AspNetCore.Authentication.AuthenticationMiddleware<Microsoft.AspNetCore.Builder.OpenstreetmapOptions>",
+      "Kind": "Removal"
+    },
+    {
+      "TypeId": "public class Microsoft.AspNetCore.Builder.OpenstreetmapOptions : Microsoft.AspNetCore.Builder.RemoteAuthenticationOptions",
+      "Kind": "Removal"
+    },
+    {
+      "TypeId": "public interface Microsoft.AspNetCore.Authentication.Openstreetmap.IOpenstreetmapEvents : Microsoft.AspNetCore.Authentication.IRemoteAuthenticationEvents",
+      "Kind": "Removal"
+    },
+    {
+      "TypeId": "public class Microsoft.AspNetCore.Authentication.Openstreetmap.RequestToken",
+      "MemberId": "public Microsoft.AspNetCore.Http.Authentication.AuthenticationProperties get_Properties()",
+      "Kind": "Removal"
+    },
+    {
+      "TypeId": "public class Microsoft.AspNetCore.Authentication.Openstreetmap.RequestToken",
+      "MemberId": "public System.Void set_Properties(Microsoft.AspNetCore.Http.Authentication.AuthenticationProperties value)",
+      "Kind": "Removal"
+    },
+    {
+      "TypeId": "public static class Microsoft.AspNetCore.Builder.OpenstreetmapAppBuilderExtensions",
+      "MemberId": "public static Microsoft.AspNetCore.Builder.IApplicationBuilder UseOpenstreetmapAuthentication(this Microsoft.AspNetCore.Builder.IApplicationBuilder app, Microsoft.AspNetCore.Builder.OpenstreetmapOptions options)",
+      "Kind": "Removal"
+    },
+    {
+      "TypeId": "public class Microsoft.AspNetCore.Authentication.Openstreetmap.OpenstreetmapCreatingTicketContext : Microsoft.AspNetCore.Authentication.Openstreetmap.BaseOpenstreetmapContext",
+      "Kind": "Removal"
+    },
+    {
+      "TypeId": "public class Microsoft.AspNetCore.Authentication.Openstreetmap.OpenstreetmapRedirectToAuthorizationEndpointContext : Microsoft.AspNetCore.Authentication.Openstreetmap.BaseOpenstreetmapContext",
+      "Kind": "Removal"
+    }
+  ]

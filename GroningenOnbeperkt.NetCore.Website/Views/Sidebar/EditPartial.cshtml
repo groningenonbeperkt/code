@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+}
+
+<h5 class="text-danger" id="infoLabel"></h5>
+<p id=loadEditWayInfo class="h5"></p>
+
+<div class="row">
+    <div class="col-xs-12">
+        <input type="checkbox" data-group="group1" name="mapSelect" onclick="showWheelchairAccessLayer('WheelchairAccess', this.id)" id="editMenuLayerActivated" ) />
+        <label for="editMenuLayerActivated">Wegen zichtbaar.</label>
+    </div>
+</div>
+
+
+@* Rolstoel Toegankelijk radiobuttons *@
+<div>
+    <h5 for="wheelchairAccessibility"><b>Rolstoel toegankelijk:</b></h5>
+    <div class=" funkyradio" id="wheelchairAccessibility">
+        <div class="row">
+            <div class="funkyradio-success col-xs-10">
+                <input type="radio" name="radio" id="radio1" value="yes" />
+                <label for="radio1" class="label-success" style="color:white">Ja</label>
+            </div>
+            <div>
+                <button type="button" class="btn btn-default" onclick="switchVisible('infoDiv1')">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                </button>
+            </div>
+        </div>
+        <div id="infoDiv1" class="info-card card" style="display: none;">Rolstoelgebruikers hebben volledige onbeperkte toegang.</div>
+        <div class="row">
+            <div class="funkyradio-warning col-xs-10">
+                <input type="radio" name="radio" id="radio2" value="limited" />
+                <label for="radio2" class="label-warning" style="color:white">Gelimiteerd</label>
+            </div>
+            <div>
+                <button type="button" class="btn btn-default" onclick="switchVisible('infoDiv2')">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                </button>
+            </div>
+        </div>
+        <div id="infoDiv2" class="info-card card" style="display: none;">Rolstoelgebruikers hebben beperkt toegang (sommige delen zijn toegankelijk, andere niet. Plekken waar assistentie nodig is [bv bij een steile helling])</div>
+        <div class="row">
+            <div class="funkyradio-danger col-xs-10">
+                <input type="radio" name="radio" id="radio3" value="no" />
+                <label for="radio3" class="label-danger" style="color:white">Nee</label>
+            </div>
+            <div>
+                <button type="button" class="btn btn-default" onclick="switchVisible('infoDiv3')">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                </button>
+            </div>
+        </div>
+        <div id="infoDiv3" class="info-card card" style="display: none;">Niet toegankelijk voor rolstoelgebruikers (bv toegang enkel via trappen)</div>
+
+    </div>
+</div>
+
+
+
+@{var listItems = new List<SelectListItem>
+    {
+          new SelectListItem { Text = "Nederlands", Value="nl" },
+          new SelectListItem { Text = "English ", Value="en" },
+    };
+}
+
+<div>
+    <h5 for="description"><b>Omschrijving:</b></h5>
+    <textarea class="btn-block" rows="5" id="description"></textarea>
+</div>
+<div class="row">
+    <div class="col-md-6  ">
+        <h5>Taal van omschrijving:</h5>
+    </div>
+    <div class="col-md-6 " style="margin-top:1em;">
+        @Html.DropDownList("Language", new SelectList(listItems, "Value", "Text"), new { @class = "btn-toolbar center-block btn-xs btn btn-default" })
+    </div>
+</div>
+
+<br />
+
+<button type="button" class="btn btn-block btn-toolbar" onclick="saveEdit()">Opslaan</button>
+<a href="https://www.openstreetmap.org" target="_blank" style="width:100%; display:block;text-align:center">Meer bewerken? Open OSM</a>

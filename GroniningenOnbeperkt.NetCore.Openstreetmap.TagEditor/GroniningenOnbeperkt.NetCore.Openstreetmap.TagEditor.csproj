@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>GroniningenOnbeperkt.NetCore.Openstreetmap.TagEditor</AssemblyName>
+    <RootNamespace>GroniningenOnbeperkt.NetCore.Openstreetmap.TagEditor</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http" Version="4.3.2" />
+  </ItemGroup>
+
+</Project>

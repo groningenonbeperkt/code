@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UserSecretsId>aspnet-GroningenOnbeperkt.NetCore.Website-3e81fba7-37a0-457c-8e81-2d5e74dcc66a</UserSecretsId>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <AssemblyName>GroningenOnbeperkt.NetCore.Website</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="app\**" />
+    <Content Remove="app\**" />
+    <EmbeddedResource Remove="app\**" />
+    <None Remove="app\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\Control.Geocoder.css" />
+    <Content Remove="wwwroot\css\MarkerCluster.Default.css" />
+    <Content Remove="wwwroot\css\OverPassLayer.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="entrypoint.sh" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="entrypoint.sh">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="2.0.0-preview1-final" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.0.2" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GroniningenOnbeperkt.NetCore.TagEditor.Openstreetmap\GroniningenOnbeperkt.NetCore.TagEditor.Openstreetmap.csproj" />
+    <ProjectReference Include="..\Microsoft.AspNetCore.Authentication.Openstreetmap\Microsoft.AspNetCore.Authentication.Openstreetmap.csproj" />
+  </ItemGroup>
+
+  <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
+    <Exec Command="bower install" />
+  </Target>
+</Project>

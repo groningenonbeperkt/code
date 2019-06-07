@@ -1,0 +1,18 @@
+﻿
+<div class=" funkyradio" id="wheelchairAccessibility">
+    <br />
+    @{
+        var maps = new string[] { "OpenStreetMap", "MapBoxMap", "WikiMediaMap" };
+
+        var selected = maps[2];
+        foreach (var map in maps)
+        {
+            <div class="row">
+                <div class="funkyradio-default col-xs-12">
+                    <input type="radio" name="mapSelect" id=@map @((map == selected ? "checked" : "")) />
+                    <label for=@map class="label-success" style="color:white" onclick="showBaseLayer('@map')">@map</label>
+                </div>
+            </div>
+        }
+    }
+</div>

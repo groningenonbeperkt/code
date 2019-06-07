@@ -1,0 +1,65 @@
+﻿<p id=loadPoiInfo class="h5"></p>
+<div class="row " style="margin-top:7px;">
+    @{
+        //filtername also used in PoiOverPassLayer / Bootstrap css class / Tooltip text
+        var accessibilityButtons = new String[,]        {
+            {"yesLayer","btn-success","Rolstoel toegankelijk"},
+            {"limitedLayer", "btn-warning","Gelimiteerd toegankelijk"},
+            {"noLayer","btn-danger","Niet toegankelijk"},
+            {"unknownLayer", "poi-unknown" ,"Toegankelijkheid onbekend"} };
+
+        // Button name / Filter query
+        // by adding new filter, also add filtername to leafletMap.css
+        Dictionary<string, string> poiFilterList = new Dictionary<string, string>(){
+            {"Kroeg","[amenity=pub]"},
+            {"Restaurant", "[amenity=restaurant]"},
+            {"Toilet","[amenity=toilets]"},
+            {"Parkeerplaats", "[amenity=parking]" },
+            {"Bank", "[amenity=bank]" }};
+
+        <script>
+        var collection = @Html.Raw(Json.Serialize(poiFilterList));
+        </script>
+        <div class="col-md-12">
+            <div id="specified-filter-all" class="funkyradio-primary btn-group btn-group-justified" style="margin-bottom: 1em">
+                @for (int i = 0; i < accessibilityButtons.GetLength(0); i++)
+            {
+                    <div class="btn-group" role="group">
+                        <label title="@(accessibilityButtons[i, 2])" id="@(accessibilityButtons[i, 0])-all" type="button" class="btn @(accessibilityButtons[i, 1])" style="opacity:1" onclick="setVisibilityAllLayers('@(accessibilityButtons[i, 0])', this); switchButtonActiveLayer('@(accessibilityButtons[i, 0])-all', 'notActiveFilterLayer');">
+                            <i class="fa fa-wheelchair-alt" aria-hidden="true"></i>
+                        </label>
+                    </div>
+                }
+            </div>
+        </div>
+        //filter buttons
+        foreach (var item in poiFilterList)
+        {<div class="col-md-12">
+        <div class="funkyradio" id="filter-@(item.Key)">
+            <div class="funkyradio-primary">
+                <input type="checkbox" id="filter-@(item.Key)-main-button" onclick="switchVisible('specified-filter-@(item.Key)'); hideShowWheelchairAccessLayer('@(item.Key)', '@(item.Value)', this);" />
+                <label for="filter-@(item.Key)-main-button" class="label-primary" style="color:white">@(item.Key)</label>
+            </div>
+            <div id="specified-filter-@(item.Key)" class="funkyradio-primary btn-group btn-group-justified" role="group" style="display: none; margin-bottom: 1em">
+
+                @for (int i = 0; i < accessibilityButtons.GetLength(0); i++)
+                {
+                    <div class="btn-group" role="group">
+                        <label title="@(accessibilityButtons[i, 2])" id="@(accessibilityButtons[i, 0])-@(item.Key)-filter" type="button" class="btn @(accessibilityButtons[i, 1])" style="opacity:1" onclick="hideShowLayer('@(item.Key)','@(accessibilityButtons[i, 0])'); switchButtonActiveLayer('@(accessibilityButtons[i, 0])-@(item.Key)-filter', 'notActiveFilterLayer');">
+                            <i class="fa fa-wheelchair-alt" aria-hidden="true"></i>
+                        </label>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+        }
+    }
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <input type="checkbox" onclick="setClustering(this);" id="poiClusteringCheckbox" ) checked />
+        <label title="Clusteren voorkomt het vastlopen van de browser bij een groot aantal markeringen" for="poiClusteringCheckbox">Clusteren <i style="font-weight:normal">(voorkomt vastlopen browser)</i></label>
+    </div>
+</div>

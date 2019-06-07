@@ -1,0 +1,19 @@
+# OSRM kunnen testen
+sudo docker-compose run -u root osrm bash
+
+# live instantie kunnen checken
+sudo docker exec -it osrm bash
+
+# OSRM entrypoint overrulen
+sudo docker-compose run -u root --entrypoint "/bin/bash" osrm
+
+# Alle images builden
+sudo docker-compose build
+
+# Reset van alle images en containers
+#!/bin/bash
+# Delete all containers
+sudo docker rm $(sudo docker ps -a -q)
+# Delete all images
+sudo docker rmi $(sudo docker images -q)
+
